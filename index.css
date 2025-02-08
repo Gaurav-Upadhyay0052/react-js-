@@ -1,0 +1,767 @@
+
+ /* .header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
+    
+}
+
+.nav-items > ul{
+   list-style-type: none;
+   display: flex; 
+}
+.nav-items > ul > li  {
+    padding: 10px
+}
+.logo{
+   width: 100px; 
+}
+
+.Card {
+    width: 200px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    
+}
+.Card > img {
+width: 100%;
+}
+.restaurant-list{
+    display: flex;
+   flex-wrap: wrap;
+  
+   
+}
+
+.shimmer-card{
+    width: 200px;
+    height: 200px;
+ background: lightgrey;
+    padding: 10px;
+    margin: 20px;
+}
+.menu{
+    display: flex;
+   
+}  */
+
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centers logo and nav items vertically */
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd; /* Subtle border */
+    background-color: #110707;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
+}
+
+/* .logo {
+    width: 120px;
+    height: auto;
+} */
+
+/* Card Styles */
+.Card {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Card:hover {
+    transform: translateY(-5px); /* Slight upward movement */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Box shadow for hover effect */
+}
+
+.Card > img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for the image */
+    margin-bottom: 15px;
+}
+
+/* Restaurant List */
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Space between the cards */
+    margin-top: 20px;
+}
+
+/* Shimmer Card (for loading state) */
+.shimmer-card {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Menu Styles */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds space between menu items */
+    margin-top: 20px;
+}
+
+.menu-item {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: #007BFF;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between input and button */
+}
+
+.search-input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 200px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.search-btn {
+    padding: 8px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+/* Style for the navigation container */
+.nav-items {
+    background-color: grey; /* Dark background */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for better look */
+}
+
+/* Unordered list within nav-items */
+.nav-items > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around; /* Spread the nav items evenly */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for each list item */
+.nav-items > ul > li {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff; /* White color for text */
+    font-weight: bold;
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for list items */
+.nav-items > ul > li:hover {
+    background-color: #007BFF; /* Blue background on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+    cursor: pointer; /* Pointer cursor for better UX */
+}
+
+/* Style for the active link */
+.nav-items > ul > li.active {
+    background-color: #28a745; /* Green background for active link */
+}
+
+/* Styling for Link component inside li */
+.nav-items > ul > li > a {
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit color from parent (li) */
+}
+
+/* Style for a mobile-friendly menu (Hamburger) */
+@media (max-width: 768px) {
+    .nav-items > ul {
+        flex-direction: column; /* Stack the items vertically on mobile */
+        align-items: center;
+    }
+}
+/* Styling for the Login Button */
+.login-btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    color: rgb(205, 19, 19); /* Text color */
+    font-size: 18px; /* Larger text for better readability */
+    padding: 15px 30px; /* Add some padding to make it larger */
+    border: none; /* Remove default border */
+    border-radius: 30px; /* Rounded corners for a sleek look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all effects */
+    position: relative; /* Needed for positioning the pseudo element */
+    outline: none; /* Remove focus outline */
+}
+
+/* Hover effect */
+.login-btn:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb); /* Reverse the gradient */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    transform: translateY(-5px); /* Slight upward movement on hover */
+}
+
+/* Active effect */
+.login-btn:active {
+    transform: translateY(2px); /* Button goes down slightly when clicked */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Back to original shadow */
+}
+
+/* Focus effect for accessibility */
+.login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8); /* Light glow effect on focus */
+}
+
+/* Adding a pseudo-element for a cool glow effect */
+.login-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.4s ease-in-out;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+}
+
+/* Glow effect on hover */
+.login-btn:hover::after {
+    transform: translate(-50%, -50%) scale(1.2); /* Increase the size of the glow */
+    opacity: 1; /* Make the glow visible */
+}
+/* Styling for the Login Button */
+.logout-btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    color: white; /* Text color */
+    font-size: 18px; /* Larger text for better readability */
+    padding: 15px 30px; /* Add some padding to make it larger */
+    border: none; /* Remove default border */
+    border-radius: 30px; /* Rounded corners for a sleek look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all effects */
+    position: relative; /* Needed for positioning the pseudo element */
+    outline: none; /* Remove focus outline */
+}
+
+/* Hover effect */
+.logout-btn:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb); /* Reverse the gradient */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    transform: translateY(-5px); /* Slight upward movement on hover */
+}
+
+/* Active effect */
+.logout-btn:active {
+    transform: translateY(2px); /* Button goes down slightly when clicked */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Back to original shadow */
+}
+
+/* Focus effect for accessibility */
+.logout-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8); /* Light glow effect on focus */
+}
+
+/* Adding a pseudo-element for a cool glow effect */
+.logout-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.4s ease-in-out;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+}
+
+/* Glow effect on hover */
+.logout-btn:hover::after {
+    transform: translate(-50%, -50%) scale(1.2); /* Increase the size of the glow */
+    opacity: 1; /* Make the glow visible */
+}
+/* Styling the logo container */
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Make it circular */
+    background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: relative; /* For positioning pseudo-elements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding depth with a shadow */
+  }
+  
+  /* Logo text inside the circle */
+  .logo-text {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase; /* Make it look neat */
+    letter-spacing: 2px;
+  }
+  
+  /* Adding a small decorative pseudo-element inside the logo */
+  .logo::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; /* Circle */
+    background-color: white;
+    top: 8px;
+    right: 8px; /* Position it at the top-right corner */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a little shadow for depth */
+  }
+  
+  /* Hover effect: Rotate the logo */
+  .logo:hover {
+    transform: rotate(15deg); /* Slightly rotate the logo on hover */
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  /* Optional: Adding a glowing effect when hovered */
+  .logo:hover::before {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  }
+  .insta-mart{
+    padding: 5px;
+    margin: 5px;
+  }
+  .user{
+   
+   
+    background-color:red;
+   
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   
+    margin: 10px auto;
+   
+}
+.card-info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+   
+        width: 100%;
+        max-width: 350px; /* Adjust to your desired size */
+        margin: 20px auto;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.cart-info{
+    display: flex;
+}
+.clear-btn{
+    background-color: green;
+    padding: 2px;
+    margin: 2px;
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .user-name {
+    color: #ffcc00; /* Highlight the user name */
+  }
+  
+  .user-email {
+    color: #ffcc00;
+    text-decoration: none;
+  }
+  
+  .user-email:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-links {
+    margin-bottom: 15px;
+  }
+  
+  .footer-link {
+    margin: 0 15px;
+    color: #ffcc00;
+    text-decoration: none;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+  }
+  
+  .copyright {
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  .developer-link {
+    color: #ffcc00;
+  }
+  
+  .developer-link:hover {
+    text-decoration: underline;
+
+  }
+
+
+
+
+
+
+
+
+
+
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  /* Cart Information Section */
+  .card-information {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Styling */
+  .card-information h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Clear Cart Button */
+  .clear-btn {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .clear-btn:hover {
+    background-color: #d43f3f; /* Darker red for hover effect */
+  }
+  
+  /* Cart Items Section */
+  .cart-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Food Item Card */
+  .food-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .food-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .food-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .food-item .item-info {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .food-item .item-info h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .food-item .item-info p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  .food-item .item-info .item-price {
+    font-size: 18px;
+    color: #ff6600;
+    font-weight: bold;
+  }
+
+
+
+
+
+
+  /* General Reset and Styling */
+
+  
+  /* Menu Section */
+  .menu {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+  
+  }
+  
+  .menu h1 {
+    font-size: 32px;
+    color: #333;
+
+    margin-bottom: 30px;
+  }
+  
+  /* Menu List */
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Image Styling */
+  .menu-item img {
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  /* Food Name and Price Styling */
+  .menu-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .menu-item p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  /* Add Button Styling */
+  .add-btn {
+    padding: 8px 20px;
+    font-size: 16px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background-color: #e55a00; /* Darker shade for hover effect */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .menu {
+      padding: 10px;
+    }
+  
+    .menu h1 {
+      font-size: 26px;
+    }
+  
+    .menu-item {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .menu-item img {
+      width: 100%;
+    }
+  
+    .menu-item h3 {
+      font-size: 18px;
+    }
+  
+    .menu-item p {
+      font-size: 14px;
+    }
+  
+    .add-btn {
+      font-size: 14px;
+    }
+  }
+  
+  
+  
